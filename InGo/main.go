@@ -35,6 +35,7 @@ func main() {
 	fmt.Println(p)
 }
 
+// transformation function for name, username and password
 func (p *PersonalData) NameAndPasswordTransformation() *PersonalData {
 	p.Name = Transformation(p.Name)
 	p.UserName = Transformation(p.UserName)
@@ -44,21 +45,25 @@ func (p *PersonalData) NameAndPasswordTransformation() *PersonalData {
 	return p
 }
 
+// transformation function for email
 func (p *PersonalData) EmailTransformation() *PersonalData {
 	p.Email = EmailTransformation(p.Email)
 	return p
 }
 
+// transformation function for name, username and password
 func Transformation(s string) string {
 	return strings.Repeat("*", len(s))
 }
 
+// transformation function for email
 func EmailTransformation(s string) string {
 	x := strings.Split(s, "@")
 	x[0] = strings.Repeat("*", len(x[0]))
 	return strings.Join(x, "@")
 }
 
+//   mock json data generator
 func GeneratePersonObject() PersonalData {
 	p := PersonalData{}
 	p.ID = 123

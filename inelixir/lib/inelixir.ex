@@ -4,6 +4,7 @@ defmodule Inelixir do
     |> nameandpasswordtransformation
   end
 
+  # mock json data generator
   def generator do
     %Inelixir.Person{
       id: 123,
@@ -19,6 +20,7 @@ defmodule Inelixir do
     }
   end
 
+  # transformation function for name, username and password
   def nameandpasswordtransformation(person) do
     %Inelixir.Person{
       id: id,
@@ -41,6 +43,7 @@ defmodule Inelixir do
     }
   end
 
+  # transformation function for username in the friend collection
   def list_transformation(friends) do
     Enum.map(friends, fn x ->
       %Inelixir.Friends{
@@ -50,6 +53,7 @@ defmodule Inelixir do
     end)
   end
 
+  # transformation function for email
   def emailtranformation(email) do
     h =
       email
@@ -61,6 +65,7 @@ defmodule Inelixir do
     "#{h}@#{t}"
   end
 
+  # transformation function for name, username and password
   def transformation(params) do
     Enum.map(String.graphemes(params), fn x -> "*" end) |> Enum.join("")
   end
